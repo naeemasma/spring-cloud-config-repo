@@ -41,9 +41,9 @@ app:
   consumer:
     props: group.instance.id=test-consumer-group-ins9000
     subscribed-to: 
-      topic: test 
+      topic: test0
     publish-to:
-      topic: test1    
+      topic: test01    
     eos-mode: BETA    
     sub-batch-per-partition: false
   producer:
@@ -52,11 +52,11 @@ app:
     standalone:
       transaction-id-prefix: txp.
   retry: 
-    topic: test.retry
+    topic: test0.retry
     attempts: 2
     interval: 1000
   dlt: 
-    topic: test.DLT
+    topic: test0.DLT
      
 logging:  
   file: c:/tmp/app.log
