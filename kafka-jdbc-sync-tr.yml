@@ -27,14 +27,14 @@ spring:
       group-id: test-consumer-group
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: com.example.avro.serde.deserializer.KafkaAvroDeserializer
       properties:
         isolation.level: read_committed        
         
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-serializer: com.example.avro.serde.deserializer.KafkaAvroSerializer
       transaction-id-prefix: tx.
 app:
   instance-id-error: 9000
