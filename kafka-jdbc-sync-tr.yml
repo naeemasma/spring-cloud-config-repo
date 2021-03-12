@@ -34,7 +34,7 @@ spring:
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: com.example.avro.serde.deserializer.KafkaAvroSerializer
+      value-serializer: com.example.avro.serde.serializer.KafkaAvroSerializer
       transaction-id-prefix: tx.
 app:
   instance-id-error: 9000
