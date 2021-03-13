@@ -27,23 +27,23 @@ spring:
       group-id: test-consumer-group
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: com.example.avro.serde.deserializer.KafkaAvroDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       properties:
         isolation.level: read_committed        
         
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: com.example.avro.serde.serializer.KafkaAvroSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       transaction-id-prefix: tx.
 app:
   instance-id-error: 9000
   consumer:
     props: group.instance.id=test-consumer-group-ins9000
     subscribed-to: 
-      topic: test0
+      topic: test 
     publish-to:
-      topic: test01    
+      topic: test1    
     eos-mode: BETA    
     sub-batch-per-partition: false
   producer:
@@ -52,11 +52,11 @@ app:
     standalone:
       transaction-id-prefix: txp.
   retry: 
-    topic: test0.retry
+    topic: test.retry
     attempts: 2
     interval: 1000
   dlt: 
-    topic: test0.DLT
+    topic: test.DLT
      
 logging:  
   file: c:/tmp/app.log
